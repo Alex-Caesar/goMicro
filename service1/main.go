@@ -3,6 +3,8 @@ package main
 import (
 	"fmt"
 	"os"
+
+	"github.com/gin-gonic/gin"
 )
 
 func main() {
@@ -10,4 +12,12 @@ func main() {
 	var envVar string
 	envVar = os.Getenv("TEST")
 	fmt.Println(envVar)
+
+	r := gin.Default()
+	r.GET("/ping", func(c *gin.Context) {
+		c.JSON(200, gin.H{
+			"message": "pong",
+		})
+	})
+	r.Run() // listen and serve on 0.0.0.0:8080
 }
