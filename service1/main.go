@@ -7,5 +7,7 @@ import (
 
 func main() {
 	fmt.Println("Hello World")
-	fmt.Println(os.Getenv("TEST"))
+	var envVar string
+	envVar = os.Getenv("TEST")
+	fmt.Println(envVar)
 }
